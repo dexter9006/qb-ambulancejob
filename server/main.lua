@@ -341,7 +341,7 @@ QBCore.Functions.CreateCallback('hospital:GetPlayerBleeding', function(source, c
 end)
 
 -- Commands
-
+--[[
 QBCore.Commands.Add('911e', Lang:t('info.ems_report'), { { name = 'message', help = Lang:t('info.message_sent') } }, false, function(source, args)
 	local src = source
 	local message
@@ -355,6 +355,7 @@ QBCore.Commands.Add('911e', Lang:t('info.ems_report'), { { name = 'message', hel
 		end
 	end
 end)
+--]]
 
 QBCore.Commands.Add('status', Lang:t('info.check_health'), {}, false, function(source, _)
 	local src = source
