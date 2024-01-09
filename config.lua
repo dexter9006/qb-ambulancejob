@@ -72,11 +72,10 @@ Config.Locations = {                -- Edit the various interaction points for p
         { coords = vector4(309.18, -577.46, 43.2, 156.62), taken = false, model = 1631638868 },
 --      { coords = vector4(324.07, -582.89, 43.2, 152.51), taken = false, model = 1631638868 },
 --      { coords = vector4(307.78, -581.97, 43.2, 337.14), taken = false, model = 1631638868 },
-
 --      { coords = vector4(349.82, -583.33, 43.02, 152.08), taken = false, model = -1091386327 },
 --      { coords = vector4(326.98, -576.17, 43.02, 152.08), taken = false, model = -1091386327 },
 	-- Paleto
-	    { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
+	{ coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
         { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
         { coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672 },
     },
