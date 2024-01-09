@@ -2,20 +2,20 @@ Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
 Config.MinimalDoctors = 2                                    -- How many players with the ambulance job to prevent the hospital check-in system from being used
 Config.DocCooldown = 1                                       -- Cooldown between doctor calls allowed, in minutes
-Config.WipeInventoryOnRespawn = true                         -- Enable or disable removing all the players items when they respawn at the hospital
+Config.WipeInventoryOnRespawn = false                         -- Enable or disable removing all the players items when they respawn at the hospital
 Config.Helicopter = 'polmav'                                 -- Helicopter model that players with the ambulance job can use
-Config.BillCost = 2000                                       -- Price that players are charged for using the hospital check-in system
+Config.BillCost = 1000                                       -- Price that players are charged for using the hospital check-in system
 Config.DeathTime = 300                                       -- How long the timer is for players to bleed out completely and respawn at the hospital
 Config.ReviveInterval = 360                                  -- How long the timer is for players to revive a player in laststand
 Config.MinimumRevive = 300                                   -- How long the timer is for players to revive a player in laststand
-Config.PainkillerInterval = 60                               -- Set the length of time painkillers last (per one)
+Config.PainkillerInterval = 10 * 60                          -- Set the length of time painkillers last (per one)
 Config.HealthDamage = 5                                      -- Minumum damage done to health before checking for injuries
 Config.ArmorDamage = 5                                       -- Minumum damage done to armor before checking for injuries
 Config.ForceInjury = 35                                      -- Maximum amount of damage a player can take before limb damage & effects are forced to occur
 Config.AlwaysBleedChance = 70                                -- Set the chance out of 100 that if a player is hit with a weapon, that also has a random chance, it will cause bleeding
 Config.MessageTimer = 12                                     -- How long it will take to display limb/bleed message
-Config.AIHealTimer = 20                                      -- How long it will take to be healed after checking in, in seconds
-Config.BleedTickRate = 30                                    -- How much time, in seconds, between bleed ticks
+Config.AIHealTimer = 15                                      -- How long it will take to be healed after checking in, in seconds
+Config.BleedTickRate = 2 * 60                                -- How much time, in seconds, between bleed ticks
 Config.BleedMovementTick = 10                                -- How many seconds is taken away from the bleed tick rate if the player is walking, jogging, or sprinting
 Config.BleedMovementAdvance = 3                              -- How much time moving while bleeding adds
 Config.BleedTickDamage = 8                                   -- The base damage that is multiplied by bleed level everytime a bleed tick occurs
@@ -37,11 +37,11 @@ Config.AlertShowInfo = 2            -- How many injuries a player must have befo
 
 Config.Locations = {                -- Edit the various interaction points for players or create new ones
     ['checking'] = {
-        [1] = vector3(308.19, -595.35, 43.29),
-        [2] = vector3(-254.54, 6331.78, 32.43), -- paleto
+        [1] = vector3(308.19, -595.35, 43.29), -- Gabz Pillbox
+	    [2] = vector3(-254.54, 6331.78, 32.43), -- Paleto
     },
     ['duty'] = {
-        [1] = vector3(311.18, -599.25, 43.29),
+        [1] = vector3(310.97, -597.28, 43.28),  -- Gabz Pillbox
         [2] = vector3(-254.88, 6324.5, 32.58),
     },
     ['vehicle'] = {
@@ -49,33 +49,34 @@ Config.Locations = {                -- Edit the various interaction points for p
         [2] = vector4(-234.28, 6329.16, 32.15, 222.5),
     },
     ['helicopter'] = {
-        [1] = vector4(351.58, -587.45, 74.16, 160.5),
+        [1] = vector4(351.58, -587.45, 74.16, 160.5),   -- Gabz Pillbox
         [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
     },
     ['armory'] = {
-        [1] = vector3(309.93, -602.94, 43.29),
+        [1] = vector3(306.25, -601.63, 43.28),      -- Gabz Pillbox
         [2] = vector3(-245.13, 6315.71, 32.82),
     },
     ['roof'] = {
-        [1] = vector4(338.5, -583.85, 74.16, 245.5),
+        [1] = vector4(338.5, -583.85, 74.16, 245.5),    -- Gabz Pillbox (toit vers accueil)
     },
     ['main'] = {
-        [1] = vector3(298.74, -599.33, 43.29),
+        [1] = vector3(330.02, -601.05, 43.28),      -- Gabz Pillbox (accueil vers toit)
     },
     ['stash'] = {
-        [1] = vector3(309.78, -596.6, 43.29),
+        [1] = vector3(299.2, -597.61, 43.28),   -- Gabz Pillbox
     },
     ['beds'] = {
-        { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
-        { coords = vector4(356.79, -585.86, 43.11, 152.08),  taken = false, model = 1631638868 },
-        { coords = vector4(354.12, -593.12, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(350.79, -591.8, 43.1, 336.32),    taken = false, model = 2117668672 },
-        { coords = vector4(346.99, -590.48, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(360.32, -587.19, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(349.82, -583.33, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(326.98, -576.17, 43.02, 152.08),  taken = false, model = -1091386327 },
-        --- paleto
-        { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
+        { coords = vector4(314.55, -584.23, 43.2, 332.92), taken = false, model = 1631638868 },
+        { coords = vector4(317.84, -585.31, 43.2, 335.94), taken = false, model = 1631638868 },
+        { coords = vector4(322.65, -587.31, 43.2, 339.75), taken = false, model = 1631638868 },
+        { coords = vector4(309.18, -577.46, 43.2, 156.62), taken = false, model = 1631638868 },
+--      { coords = vector4(324.07, -582.89, 43.2, 152.51), taken = false, model = 1631638868 },
+--      { coords = vector4(307.78, -581.97, 43.2, 337.14), taken = false, model = 1631638868 },
+
+--      { coords = vector4(349.82, -583.33, 43.02, 152.08), taken = false, model = -1091386327 },
+--      { coords = vector4(326.98, -576.17, 43.02, 152.08), taken = false, model = -1091386327 },
+	-- Paleto
+	    { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
         { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
         { coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672 },
     },
@@ -98,12 +99,14 @@ Config.AuthorizedVehicles = { -- Grade is key, don't add same vehicle in multipl
 
 Config.Items = { -- Grade is key, don't add same item in multiple grades. Higher rank can see lower
     [0] = {
-        { name = 'radio',                   price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'bandage',                 price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'painkillers',             price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'firstaid',                price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'weapon_flashlight',       price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'weapon_fireextinguisher', price = 0, amount = 50, info = {}, type = 'item' },
+        { name = 'radio',                   price = 0, amount = 1, info = {}, type = 'item' },
+        { name = 'bandage',                 price = 0, amount = 20, info = {}, type = 'item' },
+        { name = 'painkillers',             price = 0, amount = 20, info = {}, type = 'item' },
+        { name = 'firstaid',                price = 0, amount = 20, info = {}, type = 'item' },
+        { name = 'ifaks',                   price = 0, amount = 20, info = {}, type = 'item' },
+        { name = 'weapon_flashlight',       price = 0, amount = 1, info = {}, type = 'item' },
+        { name = 'weapon_fireextinguisher', price = 0, amount = 1, info = {}, type = 'item' },
+        { name = 'wheelchair',             price = 100, amount = 1, info = {}, type = 'item' },
     }
 }
 
@@ -366,6 +369,9 @@ Config.Weapons = { -- Correspond weapon names to their class number
     [`WEAPON_PUMPSHOTGUN_MK2`] = Config.WeaponClasses['SHOTGUN'],
     [`WEAPON_SAWNOFFSHOTGUN`] = Config.WeaponClasses['SHOTGUN'],
     [`WEAPON_SWEEPERSHOTGUN`] = Config.WeaponClasses['SHOTGUN'],
+    -- Vitto
+    [`WEAPON_BEANGBAGSHOTGUN`] = Config.WeaponClasses['NONE'],
+    --
 
     --[[ Animals ]]                                            --
     [`WEAPON_ANIMAL`] = Config.WeaponClasses['WILDLIFE'],      -- Animal
