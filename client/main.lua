@@ -308,16 +308,12 @@ end
 
 local function CheckWeaponDamage(ped)
     local detected = false
-    for k, v in pairs(QBCore.Shared.Weapons) do
+    for k in pairs(QBCore.Shared.Weapons) do
         if HasPedBeenDamagedByWeapon(ped, k, 0) then
             detected = true
             if not IsInDamageList(k) then
                 --[[
-                TriggerEvent('chat:addMessage', {
-                    color = { 255, 0, 0 },
-                    multiline = false,
-                    args = { Lang:t('info.status'), v.damagereason }
-                })
+                TriggerEvent('chat:addMessage', { color = { 255, 0, 0 }, multiline = false, args = { Lang:t('info.status'), v.damagereason } })
                 --]]
                 CurrentDamageList[#CurrentDamageList + 1] = k
             end
