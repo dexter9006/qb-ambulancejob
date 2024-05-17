@@ -401,7 +401,6 @@ local function EMSHelicopter(k)
     end)
 end
 
---[[
 RegisterNetEvent('qb-ambulancejob:elevator_roof', function()
     local ped = PlayerPedId()
     for k, _ in pairs(Config.Locations['roof']) do
@@ -441,7 +440,6 @@ RegisterNetEvent('qb-ambulancejob:elevator_main', function()
         DoScreenFadeIn(1000)
     end
 end)
---]]
 
 RegisterNetEvent('EMSToggle:Duty', function()
     onDuty = not onDuty
@@ -552,7 +550,6 @@ if Config.UseTarget then
                 distance = 1.5
             })
         end
-        --[[
         for k, v in pairs(Config.Locations['roof']) do
             exports['qb-target']:AddBoxZone('roof' .. k, vector3(v.x, v.y, v.z), 2, 2, {
                 name = 'roof' .. k,
@@ -593,7 +590,6 @@ if Config.UseTarget then
                 distance = 8
             })
         end
-        --]]
     end)
 else
     CreateThread(function()
